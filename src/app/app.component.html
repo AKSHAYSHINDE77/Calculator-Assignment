@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yash calculator</title>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+  </head>
+  <body>
+    <h1 style="margin-left: 110px">Calculator</h1>
+    <div class="everything">
+      <div class="calculator">
+        <table>
+          <tr>
+            <td>
+              <p style="color: red; font-size: medium">{{ msg }}</p>
+              <input
+                style="width: 400px; font-size: larger"
+                type="text"
+                placeholder="{{ s }}{{ n }}"
+                (click)="getString('')"
+              />
+            </td>
+            <td>
+              <img
+                style="width: 70px; padding-left: 170px"
+                src="../assets/y.jpg"
+                alt=""
+              />
+            </td>
+          </tr>
+        </table>
+        <div class="fit">
+          <table>
+            <tr>
+              <td>
+                <button (click)="getString('%')" (click)="getSign('%')">
+                  <h1>%</h1>
+                </button>
+              </td>
+              <td>
+                <button (click)="CE()">
+                  <h1>CE</h1>
+                </button>
+              </td>
+              <td>
+                <button (click)="CC()">
+                  <h1>CC</h1>
+                </button>
+              </td>
+              <td>
+                <button (click)="back()">
+                  <h1>&larr;</h1>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button (click)="getString('1/')" (click)="getSign('/')">
+                  <h1>1/x</h1>
+                </button>
+              </td>
+              <td>
+                <button (click)="getString('^')" (click)="getSign('^')">
+                  <h1><sup>^</sup></h1>
+                </button>
+              </td>
+              <td>
+                <button (click)="getString('√')" (click)="getSign('√')">
+                  <h1>√2</h1>
+                </button>
+              </td>
+              <td>
+                <button (click)="getString('÷')" (click)="getSign('÷')">
+                  <h1>÷</h1>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button (click)="getString('7')"><h1>7</h1></button>
+              </td>
+              <td>
+                <button (click)="getString('8')"><h1>8</h1></button>
+              </td>
+              <td>
+                <button (click)="getString('9')"><h1>9</h1></button>
+              </td>
+              <td>
+                <button (click)="getString('x')" (click)="getSign('x')">
+                  <h1>x</h1>
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <button (click)="getString('6')"><h1>6</h1></button>
+              </td>
+              <td>
+                <button (click)="getString('5')"><h1>5</h1></button>
+              </td>
+              <td>
+                <button (click)="getString('4')"><h1>4</h1></button>
+              </td>
+              <td>
+                <button (click)="getString('-')" (click)="getSign('-')">
+                  <h1>-</h1>
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <button (click)="getString('3')"><h1>3</h1></button>
+              </td>
+              <td>
+                <button (click)="getString('2')"><h1>2</h1></button>
+              </td>
+              <td>
+                <button (click)="getString('1')"><h1>1</h1></button>
+              </td>
+              <td>
+                <button (click)="getString('+')" (click)="getSign('+')">
+                  <h1>+</h1>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button (click)="getString('+')">
+                  <h1>+/-</h1>
+                </button>
+              </td>
+              <td>
+                <button (click)="getString('0')"><h1>0</h1></button>
+              </td>
+              <td>
+                <button (click)="getString('.')"><h1>.</h1></button>
+              </td>
+              <td>
+                <button
+                  style="background-color: rgb(44, 124, 210); color: aliceblue"
+                  (click)="Calculations(nums)"
+                >
+                  <h1>=</h1>
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="history" style="margin-right: auto;">
+        <a href="http://localhost:4200/"
+          ><i class="fas"
+            ><span class="material-symbols-outlined"> autorenew </span></i
+          ></a
+        >
+        <h1>History</h1>
+        <i (click)="rrr(nums)" class="material-icons">delete</i>
+        <table
+          class="box"
+          style="text-align: left; padding: 8px; overflow-y: auto"
+        >
+          <tr *ngFor="let obj of nu">
+            <td style="height: 10px">
+              <p style="margin-bottom: 0">{{ obj.inserted }}{{ "=" }}</p>
+              <p style="color: rgb(28, 27, 26); margin-top: 0">
+                <b> {{ obj.result }}</b>
+              </p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
